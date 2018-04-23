@@ -1,0 +1,22 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Category extends Model
+{
+    protected $fillable = [
+        'name',
+        'description'
+    ];
+
+    /**
+     * Get the magazines in the category.
+     * One to many relationship.
+     */
+    public function magazines()
+    {
+        return $this->hasMany('App\Magazine');
+    }
+}
