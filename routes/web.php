@@ -14,6 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/magazine/{id}', 'MagazineController@read');
 
 Auth::routes();
 
