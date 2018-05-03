@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use CyrildeWit\PageViewCounter\Traits\HasPageViewCounter;
 
 class Magazine extends Model
 {
+    use HasPageViewCounter;
 
     const DEFAULT_CATEGORY = 1;
     const DEFAULT_CSS = "";
