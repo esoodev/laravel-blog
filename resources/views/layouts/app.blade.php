@@ -18,7 +18,7 @@
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
     <!-- Bootstrap CSS-->
-    <link href="{!! asset('vendor/bootstrap/css/bootstrap.min.css') !!}" media="all" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" media="all" rel="stylesheet" type="text/css" />
     <!-- Font Awesome CSS-->
     <link rel="stylesheet" href="{{ asset('vendor/font-awesome/css/font-awesome.min.css') }}">
     <!-- Custom icon font-->
@@ -79,7 +79,7 @@
                         <a href="/" class="nav-link active ">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="/magazines" class="nav-link">Magazines</a>
+                        <a href="/magazine" class="nav-link">Magazines</a>
                     </li>
                     <li class="nav-item">
                         <a href="/magazines/latest" class="nav-link">Latest</a>
