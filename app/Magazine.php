@@ -4,25 +4,25 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-
 class Magazine extends Model
 {
-    
+
     const DEFAULT_CATEGORY = 1;
     const DEFAULT_CSS = "";
-    const DEFAULT_JAVASCRIPT = "";    
+    const DEFAULT_JAVASCRIPT = "";
 
     protected $fillable = [
         'title',
-        'content_html',
-        'is_visible',        
-        'category_id'      
+        'content_lead',
+        'content_body',
+        'is_visible',
+        'category_id',
     ];
 
     protected $attributes = [
-        'category_id'=>self::DEFAULT_CATEGORY,   
-        'content_css'=>self::DEFAULT_CSS,   
-        'content_javascript'=>self::DEFAULT_JAVASCRIPT   
+        'category_id' => self::DEFAULT_CATEGORY,
+        'content_css' => self::DEFAULT_CSS,
+        'content_javascript' => self::DEFAULT_JAVASCRIPT,
     ];
 
     /**
@@ -48,6 +48,14 @@ class Magazine extends Model
     public function employees()
     {
         return $this->belongsToMany('App\Employee')->withPivot('role_id');
+    }
+
+    /**
+     * The employess with the given role_id.
+     */
+    public function employeesHasRoleId($role_id)
+    {
+        return $this->employees()->wherePivot('role_id', '=', $role_id)->get();
     }
 
     /**

@@ -16,7 +16,8 @@ class CreateMagazinesTable extends Migration
         Schema::create('magazines', function (Blueprint $table) {
             $table->increments('id');
             $table->char('title', 100);
-            $table->mediumText('content_html');
+            $table->mediumText('content_lead');
+            $table->mediumText('content_body');
             $table->mediumText('content_css');
             $table->mediumText('content_javascript');
             $table->boolean('is_visible');
