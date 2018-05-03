@@ -163,7 +163,8 @@ return [
         /*
          * Custom Service Providers...
          */
-        App\Providers\MagazineServiceProvider::class
+        App\Providers\MagazineServiceProvider::class,
+        CyrildeWit\PageViewCounter\PageViewCounterServiceProvider::class
 
     ],
 

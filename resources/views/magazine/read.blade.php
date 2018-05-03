@@ -22,14 +22,18 @@
                         <div class="post-footer d-flex align-items-center flex-column flex-sm-row">
                             <a href="#" class="author d-flex align-items-center flex-wrap">
                                 <div class="title">
-                                    <!-- List all authors -->
+                                    <!-- List all authors. Author name is 'poing' if null. -->
+                                    @if($authors)
                                     @if(count($authors) === 1)
-                                    <span>{{ $author->name }}</span>
+                                    <span>{{ $authors[0]->name }}</span>
                                     @else @foreach ($authors as $author)
                                     <span>{{ $author->name }}</span>
-                                    @if($loop->index
-                                    < count($authors)-1) <span> & </span>
-                                        @endif @endforeach @endif
+                                        @if($loop->index
+                                        < count($authors)-1) <span> & </span>
+                                        @endif
+                                    @endforeach @endif @else
+                                    <span>poing</span>
+                                    @endif
                                 </div>
                             </a>
                             <div class="d-flex align-items-center flex-wrap">
@@ -37,7 +41,7 @@
                                     <i class="icon-clock"></i> {{ $magazine->created_at }}</div>
                                 <div class="views">
                                     <!-- TODO : connect view_count -->
-                                    <i class="icon-eye"></i> {{ $magazine->view_count }}</div>
+                                    <i class="icon-eye"></i> {{ $page_views }}</div>
                                 <div class="comments meta-last">
                                     <!-- TODO : connect view_count -->
                                     <i class="icon-comment"></i>{{ count($comments)}}</div>
