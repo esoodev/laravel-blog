@@ -4,8 +4,8 @@
             <h3 class="h6">Categories</h3>
         </header>
         <div class="item d-flex justify-content-between" v-for="(category, index) in categories" :key="index">
-            <a href="#">{{ category }}</a>
-            <span>12</span>
+            <a href="#">{{ category.name }}</a>
+            <span>{{ category.count }}</span>
         </div>
     </div>
 </template>
