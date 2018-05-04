@@ -47463,9 +47463,9 @@ var render = function() {
           "div",
           { key: index, staticClass: "item d-flex justify-content-between" },
           [
-            _c("a", { attrs: { href: "#" } }, [_vm._v(_vm._s(category))]),
+            _c("a", { attrs: { href: "#" } }, [_vm._v(_vm._s(category.name))]),
             _vm._v(" "),
-            _c("span", [_vm._v("12")])
+            _c("span", [_vm._v(_vm._s(category.count))])
           ]
         )
       })

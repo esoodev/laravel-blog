@@ -5,7 +5,7 @@ use Illuminate\Database\Seeder;
 class MagazinesTableSeeder extends Seeder
 {
     // Number of magazines to create.
-    const SEED_COUNT = 10;
+    const SEED_COUNT = 45;
 
     /**
      * Run the database seeds.

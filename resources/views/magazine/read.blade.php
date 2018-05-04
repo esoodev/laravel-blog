@@ -11,7 +11,7 @@
                     <div class="post-details">
                         <div class="post-meta d-flex justify-content-between">
                             <div class="category">
-                                <a href="#">{{ $category->name }}</a>
+                                <a href="#">{{ $magazine_category->name }}</a>
                             </div>
                         </div>
                         <h1> {{ $magazine->title }}
