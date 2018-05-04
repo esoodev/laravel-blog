@@ -201,7 +201,7 @@
             <!-- Widget [Search Bar Widget]-->
             <widget-search-component></widget-search-component>
             <!-- Widget [Latest Posts Widget]-->
-            <widget-latest-component></widget-latest-component>
+            <widget-latest-component :latests="{{ json_encode($magazine_latests) }}"></widget-latest-component>
             <!-- Widget [Categories Widget]-->
             <widget-category-component :categories="{{ json_encode($all_categories) }}"></widget-category-component>
             <!-- Widget [Tags Cloud Widget]-->

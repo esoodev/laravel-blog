@@ -17,9 +17,12 @@ class MagazineController extends Controller
     public function read($id, CategoryService $categoryService,
         TagService $tagService, MagazineService $magazineService) {
         $parent_url = dirname($_SERVER['REQUEST_URI']);
+        $magazineService->addPageView($magazine = $magazineService->findOrFail($id)); // Find magazine by the id and increment page view count.
 
-        // Find magazine by the id and increment page view count.
-        $magazineService->addPageView($magazine = $magazineService->findOrFail($id));
+        $magazine_latests = $magazineService->getLatest(3); // Get three latest posts to be put into the latest post widget.
+        foreach ($magazine_latests as &$latest) {
+            $latest['views'] = $magazineService->getPageViews($latest);
+        }
 
         $magazine_prev = $magazineService->find($id - 1);
         $magazine_next = $magazineService->find($id + 1);
@@ -27,7 +30,7 @@ class MagazineController extends Controller
         $magazine_next_url = ($magazine_next) ? $parent_url . "/" . ($id + 1) : "/";
 
         $all_categories = $categoryService->getAll();
-        foreach($all_categories as &$category) {
+        foreach ($all_categories as &$category) {
             $category['count'] = $categoryService->getMagazineCount($category);
         }
 
@@ -47,6 +50,7 @@ class MagazineController extends Controller
             'magazine_next' => $magazine_next,
             'magazine_next_url' => $magazine_next_url,
             'magazine_category' => $magazine_category,
+            'magazine_latests' => $magazine_latests,
             'page_views' => $magazineService->getPageViews($magazine),
             'all_categories' => $all_categories,
             'all_tags' => $tagService->getAllNames(),
