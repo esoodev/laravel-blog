@@ -47573,38 +47573,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ["latests"],
   mounted: function mounted() {
     console.log("Category widget component mounted.");
   }
@@ -47618,83 +47589,51 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "widget latest-posts" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "blog-posts" },
+      _vm._l(_vm.latests, function(latest, index) {
+        return _c("div", { key: index }, [
+          _c("a", { attrs: { href: "/magazine/" + latest.id } }, [
+            _c("div", { staticClass: "item d-flex align-items-center" }, [
+              _c("div", { staticClass: "title" }, [
+                _c("strong", [_vm._v(_vm._s(latest.title))]),
+                _vm._v(" "),
+                _c("div", { staticClass: "d-flex align-items-center" }, [
+                  _c("div", { staticClass: "views" }, [
+                    _c("i", { staticClass: "icon-eye" }),
+                    _vm._v(_vm._s(latest.views))
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(1, true)
+                ])
+              ])
+            ])
+          ])
+        ])
+      })
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "widget latest-posts" }, [
-      _c("header", [_c("h3", { staticClass: "h6" }, [_vm._v("Latest Posts")])]),
-      _vm._v(" "),
-      _c("div", { staticClass: "blog-posts" }, [
-        _c("a", { attrs: { href: "#" } }, [
-          _c("div", { staticClass: "item d-flex align-items-center" }, [
-            _c("div", { staticClass: "image" }),
-            _vm._v(" "),
-            _c("div", { staticClass: "title" }, [
-              _c("strong", [_vm._v("Alberto Savoia Can Teach You About")]),
-              _vm._v(" "),
-              _c("div", { staticClass: "d-flex align-items-center" }, [
-                _c("div", { staticClass: "views" }, [
-                  _c("i", { staticClass: "icon-eye" }),
-                  _vm._v(" 500")
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "comments" }, [
-                  _c("i", { staticClass: "icon-comment" }),
-                  _vm._v("12")
-                ])
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("a", { attrs: { href: "#" } }, [
-          _c("div", { staticClass: "item d-flex align-items-center" }, [
-            _c("div", { staticClass: "image" }),
-            _vm._v(" "),
-            _c("div", { staticClass: "title" }, [
-              _c("strong", [_vm._v("Alberto Savoia Can Teach You About")]),
-              _vm._v(" "),
-              _c("div", { staticClass: "d-flex align-items-center" }, [
-                _c("div", { staticClass: "views" }, [
-                  _c("i", { staticClass: "icon-eye" }),
-                  _vm._v(" 500")
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "comments" }, [
-                  _c("i", { staticClass: "icon-comment" }),
-                  _vm._v("12")
-                ])
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("a", { attrs: { href: "#" } }, [
-          _c("div", { staticClass: "item d-flex align-items-center" }, [
-            _c("div", { staticClass: "image" }),
-            _vm._v(" "),
-            _c("div", { staticClass: "title" }, [
-              _c("strong", [_vm._v("Alberto Savoia Can Teach You About")]),
-              _vm._v(" "),
-              _c("div", { staticClass: "d-flex align-items-center" }, [
-                _c("div", { staticClass: "views" }, [
-                  _c("i", { staticClass: "icon-eye" }),
-                  _vm._v(" 500")
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "comments" }, [
-                  _c("i", { staticClass: "icon-comment" }),
-                  _vm._v("12")
-                ])
-              ])
-            ])
-          ])
-        ])
-      ])
+    return _c("header", [
+      _c("h3", { staticClass: "h6" }, [_vm._v("Latest Posts")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "comments" }, [
+      _c("i", { staticClass: "icon-comment" }),
+      _vm._v("12")
     ])
   }
 ]

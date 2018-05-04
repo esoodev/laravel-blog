@@ -81,4 +81,16 @@ class MagazineService
             return null;
         }
     }
+
+    /**
+     * Get n number of latest magazines.
+     */
+    public function getLatest($n) {
+        if ($n > 0) {
+            $magazines = Magazine::orderBy('id', 'desc')->take($n)->get();
+            return $magazines;
+        } else {
+            return null;
+        }
+    }
 }
