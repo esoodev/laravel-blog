@@ -44,7 +44,7 @@
                                     <i class="icon-eye"></i> {{ $page_views }}</div>
                                 <div class="comments meta-last">
                                     <!-- TODO : connect view_count -->
-                                    <i class="icon-comment"></i>{{ count($comments)}}</div>
+                                    <i class="icon-comment"></i>{{ count($magazine_comments)}}</div>
                             </div>
                         </div>
                         <div class="post-body">
@@ -114,7 +114,9 @@
                                 @endif
                             </a>
                         </div>
-                        <div class="post-comments">
+                        <!-- Comments [Show] -->
+                        <comment-show-component :comments="{{ json_encode($magazine_comments) }}"></comment-show-component>
+                        <!-- <div class="post-comments">
                             <header>
                                 <h3 class="h6">Post Comments
                                     <span class="no-of-comments">(3)</span>
@@ -171,7 +173,7 @@
                                         ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="add-comment">
                             <header>
                                 <h3 class="h6">Leave a reply</h3>

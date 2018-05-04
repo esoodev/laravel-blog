@@ -16,7 +16,7 @@
                                 <div class="views">
                                     <i class="icon-eye"></i>{{ latest.views }}</div>
                                 <div class="comments">
-                                    <i class="icon-comment"></i>12</div>
+                                    <i class="icon-comment"></i>{{ latest.comments_count }}</div>
                             </div>
                         </div>
                     </div>

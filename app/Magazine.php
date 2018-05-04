@@ -68,4 +68,13 @@ class Magazine extends Model
         return $this->belongsToMany('App\Tag');
     }
 
+    /**
+     * Get the comments for the magazine post.
+     * One to many relationship.
+     */
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
+
 }

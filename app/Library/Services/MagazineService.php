@@ -82,6 +82,15 @@ class MagazineService
         }
     }
 
+    public function getComments($magazine)
+    {
+        if ($magazine) {
+            return $magazine->comments;
+        } else {
+            return null;
+        }
+    }
+
     /**
      * Get n number of latest magazines.
      */

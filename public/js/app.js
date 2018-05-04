@@ -14001,6 +14001,7 @@ window.Vue = __webpack_require__(37);
  */
 
 Vue.component('example-component', __webpack_require__(40));
+Vue.component('comment-show-component', __webpack_require__(60));
 Vue.component('widget-category-component', __webpack_require__(43));
 Vue.component('widget-latest-component', __webpack_require__(46));
 Vue.component('widget-tag-component', __webpack_require__(49));
@@ -47608,7 +47609,10 @@ var render = function() {
                     _vm._v(_vm._s(latest.views))
                   ]),
                   _vm._v(" "),
-                  _vm._m(1, true)
+                  _c("div", { staticClass: "comments" }, [
+                    _c("i", { staticClass: "icon-comment" }),
+                    _vm._v(_vm._s(latest.comments_count))
+                  ])
                 ])
               ])
             ])
@@ -47625,15 +47629,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("header", [
       _c("h3", { staticClass: "h6" }, [_vm._v("Latest Posts")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "comments" }, [
-      _c("i", { staticClass: "icon-comment" }),
-      _vm._v("12")
     ])
   }
 ]
@@ -47885,6 +47880,155 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 56 */,
+/* 57 */,
+/* 58 */,
+/* 59 */,
+/* 60 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(61)
+/* template */
+var __vue_template__ = __webpack_require__(62)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/CommentShowComponent.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-18a9ac98", Component.options)
+  } else {
+    hotAPI.reload("data-v-18a9ac98", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 61 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ["comments"],
+  mounted: function mounted() {
+    console.log("Comments show component mounted.");
+  }
+});
+
+/***/ }),
+/* 62 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "post-comments" },
+    [
+      _c("header", [
+        _c("h3", { staticClass: "h6" }, [
+          _vm._v("Post Comments\n            "),
+          _c("span", { staticClass: "no-of-comments" }, [
+            _vm._v(_vm._s(_vm.comments.length))
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _vm._l(_vm.comments, function(comment, index) {
+        return _c("div", { key: index, staticClass: "comment" }, [
+          _c(
+            "div",
+            { staticClass: "comment-header d-flex justify-content-between" },
+            [
+              _c("div", { staticClass: "user d-flex align-items-center" }, [
+                _c("div", { staticClass: "title" }, [
+                  _c("strong", [_vm._v(_vm._s(comment.name))]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "date" }, [
+                    _vm._v(_vm._s(comment.created_at))
+                  ])
+                ])
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "comment-body" }, [
+            _c("p", [_vm._v(_vm._s(comment.comment))])
+          ])
+        ])
+      })
+    ],
+    2
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-18a9ac98", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
