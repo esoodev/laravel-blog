@@ -2,11 +2,11 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
-use App\Library\Services\MagazineService;
-use App\Library\Services\CommentService;
 use App\Library\Services\CategoryService;
+use App\Library\Services\CommentService;
+use App\Library\Services\MagazineService;
 use App\Library\Services\TagService;
+use Illuminate\Support\ServiceProvider;
 
 class MagazineServiceProvider extends ServiceProvider
 {
@@ -27,19 +27,19 @@ class MagazineServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('App\Library\Services\MagazineService', function ($app) {
+        $this->app->bind(MagazineService::class, function ($app) {
             return new MagazineService();
         });
-        
-        $this->app->bind('App\Library\Services\CommentService', function ($app) {
+
+        $this->app->bind(CommentService::class, function ($app) {
             return new CommentService();
         });
 
-        $this->app->bind('App\Library\Services\CategoryService', function ($app) {
+        $this->app->bind(CategoryService::class, function ($app) {
             return new CategoryService();
         });
-        
-        $this->app->bind('App\Library\Services\TagService', function ($app) {
+
+        $this->app->bind(TagService::class, function ($app) {
             return new TagService();
         });
     }

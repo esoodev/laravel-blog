@@ -8,35 +8,59 @@ use App\Library\Services\TagService;
 
 class MagazineController extends Controller
 {
+
+    public function __construct(
+        MagazineService $magazineService,
+        CategoryService $categoryService,
+        TagService $tagService
+    ) {
+        $this->magazineService = $magazineService;
+        $this->categoryService = $categoryService;
+        $this->tagService = $tagService;
+    }
+
     /**
      * Show the magazine for the given magazine id.
      *
      * @param  int  $id
      * @return Response
      */
-    public function read($id, CategoryService $categoryService,
-        TagService $tagService, MagazineService $magazineService) {
-        $parent_url = dirname($_SERVER['REQUEST_URI']);
-        $magazineService->addPageView($magazine = $magazineService->findOrFail($id)); // Find magazine by the id and increment page view count.
+    public function read($id)
+    {
 
-        $magazine_latests = $magazineService->getLatest(3); // Get three latest posts to be put into the latest post widget.
+        // Find magazine by the id and increment page view count.
+        $this->magazineService->addPageView(
+            $magazine = $this->magazineService->findOrFail($id));
+
+        // Get three latest posts to be put into the latest post widget.
+        $magazine_latests = $this->magazineService->getLatest(3);
         foreach ($magazine_latests as &$latest) {
-            $latest['views'] = $magazineService->getPageViews($latest);
-            $latest['comments_count'] = count($magazineService->getComments($latest));
+            $latest['views'] = 
+                $this->magazineService->getPageViews($latest);
+            $latest['comments_count'] =
+                $this->magazineService->getCommentsCount($latest);
         }
 
-        $magazine_prev = $magazineService->find($id - 1);
-        $magazine_next = $magazineService->find($id + 1);
+        // Get previous and next magazines and their appropriate urls.
+        $parent_url = dirname($_SERVER['REQUEST_URI']);
+        $magazine_prev = $this->magazineService->find($id - 1);
+        $magazine_next = $this->magazineService->find($id + 1);
         $magazine_prev_url = ($magazine_prev) ? $parent_url . "/" . ($id - 1) : "/";
         $magazine_next_url = ($magazine_next) ? $parent_url . "/" . ($id + 1) : "/";
 
-        $all_categories = $categoryService->getAll();
+        // Get all categories and the number of magazines that belong to each.
+        $all_categories = $this->categoryService->getAll();
         foreach ($all_categories as &$category) {
-            $category['count'] = $categoryService->getMagazineCount($category);
+            $category['count'] = $this->categoryService->getMagazineCount($category);
         }
 
-        $magazine_category = $magazineService->getCategory($magazine);
-        $authors = $magazineService->getAuthors($magazine);
+        // Get the category of the current magazine.
+        $magazine_category = $this->magazineService->getCategory($magazine);
+
+        // Get the authors of the current magazine.
+        $authors = $this->magazineService->getAuthors($magazine);
+
+        // Get the tags of the current magazine.
         $tags = $magazine->tags;
 
         return view('magazine.read', [
@@ -47,10 +71,10 @@ class MagazineController extends Controller
             'magazine_next_url' => $magazine_next_url,
             'magazine_category' => $magazine_category,
             'magazine_latests' => $magazine_latests,
-            'magazine_comments' => $magazineService->getComments($magazine),
-            'page_views' => $magazineService->getPageViews($magazine),
+            'magazine_comments' => $this->magazineService->getComments($magazine),
+            'page_views' => $this->magazineService->getPageViews($magazine),
             'all_categories' => $all_categories,
-            'all_tags' => $tagService->getAllNames(),
+            'all_tags' => $this->tagService->getAllNames(),
             'authors' => $authors,
             'tags' => $tags,
         ]);

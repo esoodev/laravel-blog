@@ -91,6 +91,11 @@ class MagazineService
         }
     }
 
+    public function getCommentsCount($magazine)
+    {
+        return count($this->getComments($magazine));
+    }
+
     /**
      * Get n number of latest magazines.
      */

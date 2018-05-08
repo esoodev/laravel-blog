@@ -8,14 +8,20 @@ use App\Library\Services\CommentService;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
-{
+{   
+
+    public function __construct(CommentService $commentService)
+    {
+        $this->commentService = $commentService;
+    }
+
     /**
      * Create a comment.
      */
-    public function store(Request $request, CommentService $commentService)
+    public function store(Request $request)
     {
         // TODO: Validate the request...
-        $commentService->createComment($request->id, $request);
+        $this->commentService->createComment($request->id, $request);
         return back();
     }
 }
