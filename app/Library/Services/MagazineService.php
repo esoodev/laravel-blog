@@ -21,6 +21,11 @@ class MagazineService
         return Magazine::findOrFail($id);
     }
 
+    public function paginate($per_page)
+    {
+        return Magazine::paginate($per_page);
+    }
+
     public function addPageView($magazine)
     {
         if ($magazine) {
