@@ -18,6 +18,7 @@ class CreateCommentsTable extends Migration
             $table->char('name', 100);
             $table->char('email', 100);
             $table->text('comment');
+            $table->char('ip', 50);
             $table->integer('magazine_id');                    
             $table->boolean('is_active');
             $table->timestamps();

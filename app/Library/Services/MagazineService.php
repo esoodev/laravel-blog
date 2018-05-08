@@ -11,7 +11,7 @@ class MagazineService
         return Magazine::all()->toArray();
     }
 
-    public function find($id)
+    public static function find($id)
     {
         return Magazine::find($id);
     }

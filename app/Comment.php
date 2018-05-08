@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
@@ -27,5 +28,17 @@ class Comment extends Model
     public function magazine()
     {
         return $this->belongsTo('App\Magazine');
+    }
+
+    /**
+     * Create a comment.
+     */
+    public function store(Request $request)
+    {
+        // TODO: Validate the request...
+
+        $comment = new Comment;
+        $comment->comment = $request->name;
+        $flight->save();
     }
 }
