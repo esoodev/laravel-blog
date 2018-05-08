@@ -14,6 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/magazine', 'MagazineController@overview');
 Route::get('/magazine/{id}', 'MagazineController@read');
 Route::post('/magazine/{id}/comments', 'CommentController@store');
 

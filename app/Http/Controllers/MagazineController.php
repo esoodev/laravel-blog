@@ -25,6 +25,20 @@ class MagazineController extends Controller
      * @param  int  $id
      * @return Response
      */
+    public function overview()
+    {
+
+        return view('magazine.overview', [
+
+        ]);
+    }
+
+    /**
+     * Show the magazine for the given magazine id.
+     *
+     * @param  int  $id
+     * @return Response
+     */
     public function read($id)
     {
 
