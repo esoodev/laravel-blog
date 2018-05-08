@@ -16,6 +16,7 @@ window.Vue = require('vue');
  */
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('comment-show-component', require('./components/CommentShowComponent.vue'));
 Vue.component('widget-category-component', require('./components/WidgetCategoryComponent.vue'));
 Vue.component('widget-latest-component', require('./components/WidgetLatestComponent.vue'));
 Vue.component('widget-tag-component', require('./components/WidgetTagComponent.vue'));

@@ -25,7 +25,8 @@ class DatabaseSeeder extends Seeder
             MagazinesTableSeeder::class,
             SubjectsTableSeeder::class,
             TagsTableSeeder::class,
-            EmployeesTableSeeder::class  
+            EmployeesTableSeeder::class,
+            CommentTableSeeder::class,
         ]);
     }
 

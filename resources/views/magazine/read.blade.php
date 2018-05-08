@@ -23,17 +23,15 @@
                             <a href="#" class="author d-flex align-items-center flex-wrap">
                                 <div class="title">
                                     <!-- List all authors. Author name is 'poing' if null. -->
-                                    @if($authors)
-                                    @if(count($authors) === 1)
+                                    @if($authors) @if(count($authors) === 1)
                                     <span>{{ $authors[0]->name }}</span>
                                     @else @foreach ($authors as $author)
                                     <span>{{ $author->name }}</span>
-                                        @if($loop->index
-                                        < count($authors)-1) <span> & </span>
+                                    @if($loop->index
+                                    < count($authors)-1) <span> & </span>
+                                        @endif @endforeach @endif @else
+                                        <span>poing</span>
                                         @endif
-                                    @endforeach @endif @else
-                                    <span>poing</span>
-                                    @endif
                                 </div>
                             </a>
                             <div class="d-flex align-items-center flex-wrap">
@@ -44,7 +42,7 @@
                                     <i class="icon-eye"></i> {{ $page_views }}</div>
                                 <div class="comments meta-last">
                                     <!-- TODO : connect view_count -->
-                                    <i class="icon-comment"></i>{{ count($comments)}}</div>
+                                    <i class="icon-comment"></i>{{ count($magazine_comments)}}</div>
                             </div>
                         </div>
                         <div class="post-body">
@@ -114,78 +112,23 @@
                                 @endif
                             </a>
                         </div>
-                        <div class="post-comments">
-                            <header>
-                                <h3 class="h6">Post Comments
-                                    <span class="no-of-comments">(3)</span>
-                                </h3>
-                            </header>
-                            <div class="comment">
-                                <div class="comment-header d-flex justify-content-between">
-                                    <div class="user d-flex align-items-center">
-                                        <div class="image">
-                                            <img src="{{ asset('img/user.svg') }}" alt="..." class="img-fluid rounded-circle">
-                                        </div>
-                                        <div class="title">
-                                            <strong>Jabi Hernandiz</strong>
-                                            <span class="date">May 2016</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="comment-body">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                                        ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                                </div>
-                            </div>
-                            <div class="comment">
-                                <div class="comment-header d-flex justify-content-between">
-                                    <div class="user d-flex align-items-center">
-                                        <div class="image">
-                                            <img src="{{ asset('img/user.svg') }}" alt="..." class="img-fluid rounded-circle">
-                                        </div>
-                                        <div class="title">
-                                            <strong>Nikolas</strong>
-                                            <span class="date">May 2016</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="comment-body">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                                        ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                                </div>
-                            </div>
-                            <div class="comment">
-                                <div class="comment-header d-flex justify-content-between">
-                                    <div class="user d-flex align-items-center">
-                                        <div class="image">
-                                            <img src="{{ asset('img/user.svg') }}" alt="..." class="img-fluid rounded-circle">
-                                        </div>
-                                        <div class="title">
-                                            <strong>John Doe</strong>
-                                            <span class="date">May 2016</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="comment-body">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                                        ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                                </div>
-                            </div>
-                        </div>
+                        <!-- Comments [Show] -->
+                        <comment-show-component :comments="{{ json_encode($magazine_comments) }}"></comment-show-component>
                         <div class="add-comment">
                             <header>
                                 <h3 class="h6">Leave a reply</h3>
                             </header>
-                            <form action="#" class="commenting-form">
+                            <form method="POST" action="/magazine/{{ $magazine->id }}/comments" class="commenting-form">
+                                {{ csrf_field() }}
                                 <div class="row">
                                     <div class="form-group col-md-6">
-                                        <input type="text" name="username" id="username" placeholder="Name" class="form-control">
+                                        <input type="text" name="name" id="name" placeholder="Name" class="form-control">
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <input type="email" name="useremail" id="useremail" placeholder="Email Address (will not be published)" class="form-control">
+                                        <input type="email" name="email" id="email" placeholder="Email Address (will not be published)" class="form-control">
                                     </div>
                                     <div class="form-group col-md-12">
-                                        <textarea name="usercomment" id="usercomment" placeholder="Type your comment" class="form-control"></textarea>
+                                        <textarea name="comment" id="comment" placeholder="Type your comment" class="form-control"></textarea>
                                     </div>
                                     <div class="form-group col-md-12">
                                         <button type="submit" class="btn btn-secondary">Submit Comment</button>

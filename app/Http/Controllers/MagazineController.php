@@ -22,6 +22,7 @@ class MagazineController extends Controller
         $magazine_latests = $magazineService->getLatest(3); // Get three latest posts to be put into the latest post widget.
         foreach ($magazine_latests as &$latest) {
             $latest['views'] = $magazineService->getPageViews($latest);
+            $latest['comments_count'] = count($magazineService->getComments($latest));
         }
 
         $magazine_prev = $magazineService->find($id - 1);
@@ -38,11 +39,6 @@ class MagazineController extends Controller
         $authors = $magazineService->getAuthors($magazine);
         $tags = $magazine->tags;
 
-        /**
-         * TODO: link comments.
-         */
-        $comments = [1, 2, 3];
-
         return view('magazine.read', [
             'magazine' => $magazine,
             'magazine_prev' => $magazine_prev,
@@ -51,11 +47,11 @@ class MagazineController extends Controller
             'magazine_next_url' => $magazine_next_url,
             'magazine_category' => $magazine_category,
             'magazine_latests' => $magazine_latests,
+            'magazine_comments' => $magazineService->getComments($magazine),
             'page_views' => $magazineService->getPageViews($magazine),
             'all_categories' => $all_categories,
             'all_tags' => $tagService->getAllNames(),
             'authors' => $authors,
-            'comments' => $comments,
             'tags' => $tags,
         ]);
     }

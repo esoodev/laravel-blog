@@ -11,7 +11,7 @@ class MagazineService
         return Magazine::all()->toArray();
     }
 
-    public function find($id)
+    public static function find($id)
     {
         return Magazine::find($id);
     }
@@ -77,6 +77,15 @@ class MagazineService
             $authors = $magazine->employeesHasRoleId(1);
             // return $authors;
             return ((count($authors) > 0) ? $authors : null);
+        } else {
+            return null;
+        }
+    }
+
+    public function getComments($magazine)
+    {
+        if ($magazine) {
+            return $magazine->comments;
         } else {
             return null;
         }
