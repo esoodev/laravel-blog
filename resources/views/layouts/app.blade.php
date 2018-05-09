@@ -13,6 +13,16 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- jQuery -->
+    <script src="{{ asset('vendor/jquery/jquery.min.js') }}" defer></script>
+    <!-- Bootstrap JS -->
+    <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}" defer></script>
+    <!-- jQuery Cookie -->
+    <script src="{{ asset('vendor/jquery.cookie/jquery.cookie.js') }}" defer></script>
+    <!-- Fancybox -->
+    <script src="{{ asset('vendor/@fancyapps/fancybox/jquery.fancybox.min.js') }}" defer></script>
+    <!-- Custom JS -->
+    <script src="{{ asset('js/front.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
