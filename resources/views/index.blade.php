@@ -73,7 +73,7 @@
                             <a href="#">{{ $latest->category->name }}</a>
                         </div>
                     </div>
-                    <a href="post.html">
+                    <a href="/magazine/{{ $latest->id }}">
                         <h3 class="h4">{{ $latest->title }}</h3>
                     </a>
                     <p class="text-muted">{{ $latest->content_lead }}</p>
