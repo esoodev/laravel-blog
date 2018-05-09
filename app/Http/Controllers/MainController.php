@@ -27,8 +27,5 @@ class MainController extends Controller
         foreach ($this->all_categories as &$category) {
             $category['count'] = $this->categoryService->getMagazineCount($category);
         }
-
-        // Get three latest posts to be put into the latest post widget.
-        $this->magazine_latests = $this->magazineService->getLatest(3);
     }
 }

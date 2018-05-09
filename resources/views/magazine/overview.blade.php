@@ -30,7 +30,11 @@
                                         <img src="img/avatar-3.jpg" alt="..." class="img-fluid">
                                     </div> -->
                                     <div class="title">
-                                        <span>{{ $magazine->authors[0]->name }}</span>
+                                        @if(count($magazine->authors)!=0)
+                                            <span>{{ $magazine->authors->first()->name }}</span>
+                                        @else
+                                            <span>Poing</span>
+                                        @endif
                                     </div>
                                 </a>
                                 <div class="date">

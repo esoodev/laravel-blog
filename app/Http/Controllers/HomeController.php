@@ -42,7 +42,7 @@ class HomeController extends MainController
         return view('index', [
             'magazines' => $magazines,
             'magazine_rands' => $magazine_rands,
-            'magazine_latests' => $this->magazine_latests,
+            'magazine_latests' => $this->magazineService->getLatest(3),
             'all_categories' => $this->all_categories,
             'all_tags' => $this->all_tag_names,
         ]);

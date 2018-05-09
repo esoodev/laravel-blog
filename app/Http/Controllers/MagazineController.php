@@ -25,7 +25,7 @@ class MagazineController extends MainController
 
         return view('magazine.overview', [
             'magazines' => $magazines,
-            'magazine_latests' => $this->magazine_latests,
+            'magazine_latests' => $this->magazineService->getLatest(3),
             'all_categories' => $this->all_categories,
             'all_tags' => $this->all_tag_names,
         ]);
@@ -59,13 +59,13 @@ class MagazineController extends MainController
 
         return view('magazine.read', [
             'magazine' => $magazine,
+            'page_views' => $this->magazineService->getPageViews($magazine),
             'magazine_prev' => $magazine_prev,
             'magazine_prev_url' => $magazine_prev_url,
             'magazine_next' => $magazine_next,
             'magazine_next_url' => $magazine_next_url,
             'magazine_category' => $magazine_category,
-            'magazine_latests' => $this->magazine_latests,
-            'page_views' => $this->magazineService->getPageViews($magazine),
+            'magazine_latests' => $this->magazineService->getLatest(3),
             'all_categories' => $this->all_categories,
             'all_tags' => $this->all_tag_names,
             'authors' => $magazine->authors,
