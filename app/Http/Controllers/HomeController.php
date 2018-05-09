@@ -26,7 +26,7 @@ class HomeController extends MainController
     public function index()
     {
         $magazines = $this->magazineService->getAll();
-        $magazine_rands = $this->magazineService->getRandom(3);
+        $magazine_rands = $this->magazineService->getRandom(2);
 
         return view('index', [
             'magazines' => $magazines,

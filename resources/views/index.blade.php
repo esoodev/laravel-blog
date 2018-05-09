@@ -13,7 +13,7 @@
     </div>
 </section>
 <!-- Intro Section-->
-<section class="intro">
+<!-- <section class="intro">
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
@@ -26,31 +26,7 @@
             </div>
         </div>
     </div>
-</section>
-<section class="featured-posts no-padding-top">
-    <div class="container">
-        <!-- Random Posts-->
-        @foreach($magazine_rands as $rand)
-        @if($loop->iteration%2)
-        @include('index-featured-right',  ['magazine' => $rand])
-        @else
-        @include('index-featured-left', ['magazine' => $rand])
-        @endif
-        @endforeach
-    </div>
-</section>
-<!-- Divider Section-->
-<section style="background: url(img/divider-bg.jpg); background-size: cover; background-position: center bottom" class="divider">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-7">
-                <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                    magna aliqua</h2>
-                <a href="#" class="hero-link">View More</a>
-            </div>
-        </div>
-    </div>
-</section>
+</section> -->
 <!-- Latest Posts -->
 <section class="latest-posts">
     <div class="container">
@@ -81,6 +57,35 @@
             </div>
             @endforeach
         </div>
+    </div>
+</section>
+<!-- Divider Section-->
+<section style="background: url(img/divider-bg.jpg); background-size: cover; background-position: center bottom" class="divider">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                    magna aliqua</h2>
+                <a href="#" class="hero-link">View More</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Featured Section-->
+<section class="featured-posts">
+    <div class="container">
+        <header>
+            <h2>In the Pantry</h2>
+            <p class="text-big">Cold Pizzas are still good!</p>
+        </header>
+        <!-- Random Posts-->
+        @foreach($magazine_rands as $rand)
+        @if($loop->iteration%2)
+        @include('index-featured-right',  ['magazine' => $rand])
+        @else
+        @include('index-featured-left', ['magazine' => $rand])
+        @endif
+        @endforeach
     </div>
 </section>
 <!-- Gallery Section-->
