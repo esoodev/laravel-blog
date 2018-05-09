@@ -53,11 +53,11 @@ class Magazine extends Model
     }
 
     /**
-     * The employess with the given role_id.
+     * Get authors of the magazine.
      */
-    public function employeesHasRoleId($role_id)
+    public function authors()
     {
-        return $this->employees()->wherePivot('role_id', '=', $role_id)->get();
+        return $this->employees()->wherePivot('role_id', '=', 1);
     }
 
     /**
@@ -77,4 +77,11 @@ class Magazine extends Model
         return $this->hasMany('App\Comment');
     }
 
+    /**
+     * The employess with the given role_id.
+     */
+    private function employeesHasRoleId($role_id)
+    {
+        return $this->employees()->wherePivot('role_id', '=', $role_id)->get();
+    }
 }

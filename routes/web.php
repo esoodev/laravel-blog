@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
+Route::get('/', 'HomeController@index');
 Route::get('/magazine', 'MagazineController@overview');
 Route::get('/magazine/{id}', 'MagazineController@read');
 Route::post('/magazine/{id}/comments', 'CommentController@store');

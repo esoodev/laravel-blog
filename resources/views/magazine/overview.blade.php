@@ -36,7 +36,7 @@
                                 <div class="date">
                                     <i class="icon-clock"></i> {{ $magazine->days_ago.' days ago' }}</div>
                                 <div class="comments meta-last">
-                                    <i class="icon-comment"></i>{{ $magazine->comments_count }}</div>
+                                    <i class="icon-comment"></i>{{ $magazine->comments->count() }}</div>
                             </footer>
                         </div>
                     </div>

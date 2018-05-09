@@ -2,13 +2,20 @@
 namespace App\Library\Services;
 
 use App\Category;
+use App\Comment;
 use App\Magazine;
+use Carbon\Carbon;
 
 class MagazineService
 {
     public function getAll()
     {
-        return Magazine::all()->toArray();
+        return Magazine::all();
+    }
+
+    public function getMagazineCount()
+    {
+        return Magazine::count();
     }
 
     public static function find($id)
@@ -30,7 +37,7 @@ class MagazineService
     {
         if ($magazine) {
             // $magazine->addPageViewThatExpiresAt(Carbon::now()->addHours(2));
-            $magazine->addPageView();   // For dev
+            $magazine->addPageView(); // For dev
             return true;
         } else {
             return false;
@@ -41,7 +48,7 @@ class MagazineService
     {
         if ($magazine = Magazine::find($id)) {
             // $magazine->addPageViewThatExpiresAt(Carbon::now()->addHours(2));
-            $magazine->addPageView();   // For dev
+            $magazine->addPageView(); // For dev
             return true;
         } else {
             return false;
@@ -76,17 +83,6 @@ class MagazineService
         }
     }
 
-    public function getAuthors($magazine)
-    {
-        if ($magazine) {
-            $authors = $magazine->employeesHasRoleId(1);
-            // return $authors;
-            return ((count($authors) > 0) ? $authors : null);
-        } else {
-            return null;
-        }
-    }
-
     public function getComments($magazine)
     {
         if ($magazine) {
@@ -96,20 +92,50 @@ class MagazineService
         }
     }
 
-    public function getCommentsCount($magazine)
+    public function getCommentCount($magazine)
     {
         return count($this->getComments($magazine));
     }
 
+    public function getDaysAgo($magazine)
+    {
+        return Carbon::parse($magazine->created_at)->diffInDays(Carbon::now(), false);
+    }
+
     /**
-     * Get n number of latest magazines.
+     * Get n latest magazines.
      */
-    public function getLatest($n) {
+    public function getLatest($n)
+    {
         if ($n > 0) {
             $magazines = Magazine::orderBy('id', 'desc')->take($n)->get();
+            foreach ($magazines as &$magazine) {
+                $magazine['views'] =
+                $this->getPageViews($magazine);
+                $magazine['comments_count'] =
+                $this->getCommentCount($magazine);
+            }
             return $magazines;
         } else {
             return null;
         }
+    }
+
+    /**
+     * Get n randomly chosen magazines.
+     */
+    public function getRandom($n)
+    {
+        $result = [];
+
+        while (sizeof($result) < $n) {
+            $magazine = $this->find(rand(1, $this->getMagazineCount()));
+            if (in_array($magazine, $result)) {
+                continue;
+            }
+            array_push($result, $magazine);
+        }
+
+        return $result;
     }
 }
