@@ -17,12 +17,6 @@ class MagazineController extends MainController
     {
         $magazines = $this->magazineService->paginate(8);
 
-        foreach ($magazines as &$magazine) {
-            // Get how many days, months, years past since the post.
-            $magazine['days_ago'] =
-            $this->magazineService->getDaysAgo($magazine);
-        }
-
         return view('magazine.overview', [
             'magazines' => $magazines,
             'magazine_latests' => $this->magazineService->getLatest(3),

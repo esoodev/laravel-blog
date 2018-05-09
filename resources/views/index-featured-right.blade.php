@@ -25,7 +25,9 @@
                         </div>
                     </a>
                     <div class="date">
-                        <i class="icon-clock"></i>{{ $magazine->days_ago.' days ago' }}</div>
+                        <i class="icon-clock"></i>
+                        <time class="timeago" datetime="{{ $magazine->created_at }}">{{ $magazine->created_at }}</time>
+                    </div>
                     <div class="comments">
                         <i class="icon-comment"></i>{{ count($magazine->comments) }}</div>
                 </footer>

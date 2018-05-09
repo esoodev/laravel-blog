@@ -19,6 +19,8 @@
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}" defer></script>
     <!-- jQuery Cookie -->
     <script src="{{ asset('vendor/jquery.cookie/jquery.cookie.js') }}" defer></script>
+    <!-- jQuery Timeago -->
+    <script src="{{ asset('js/jquery.timeago.js') }}" defer></script>
     <!-- Fancybox -->
     <script src="{{ asset('vendor/@fancyapps/fancybox/jquery.fancybox.min.js') }}" defer></script>
     <!-- Custom JS -->

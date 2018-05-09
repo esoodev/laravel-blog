@@ -21,14 +21,16 @@
                         </div> -->
                         <div class="title">
                             @if(count($magazine->authors)!=0)
-                                <span>{{ $magazine->authors->first()->name }}</span>
+                            <span>{{ $magazine->authors->first()->name }}</span>
                             @else
-                                <span>Poing</span>
+                            <span>Poing</span>
                             @endif
                         </div>
                     </a>
                     <div class="date">
-                        <i class="icon-clock"></i>{{ $magazine->days_ago.' days ago' }}</div>
+                        <i class="icon-clock"></i>
+                        <time class="timeago" datetime="{{ $magazine->created_at }}">{{ $magazine->created_at }}</time>
+                    </div>
                     <div class="comments">
                         <i class="icon-comment"></i>{{ $magazine->comments->count() }}</div>
                 </footer>

@@ -19,6 +19,7 @@ class Magazine extends Model
         'content_body',
         'is_visible',
         'category_id',
+        'created_at'   // for debug
     ];
 
     protected $attributes = [
@@ -53,6 +54,14 @@ class Magazine extends Model
     }
 
     /**
+     * The employess with the given role_id.
+     */
+    private function employeesHasRoleId($role_id)
+    {
+        return $this->employees()->wherePivot('role_id', '=', $role_id)->get();
+    }
+
+    /**
      * Get authors of the magazine.
      */
     public function authors()
@@ -77,11 +86,4 @@ class Magazine extends Model
         return $this->hasMany('App\Comment');
     }
 
-    /**
-     * The employess with the given role_id.
-     */
-    private function employeesHasRoleId($role_id)
-    {
-        return $this->employees()->wherePivot('role_id', '=', $role_id)->get();
-    }
 }

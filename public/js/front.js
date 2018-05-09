@@ -102,4 +102,9 @@ $(document).ready(function () {
         $('.navbar-toggler').toggleClass('active');
     });
 
+    // ---------------------------------------------- //
+    // Timeago
+    // ---------------------------------------------- //
+    $("time.timeago").timeago();
+
 });

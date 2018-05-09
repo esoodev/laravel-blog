@@ -30,7 +30,7 @@ class MagazineService
 
     public function paginate($per_page)
     {
-        return Magazine::paginate($per_page);
+        return Magazine::orderby('created_at', 'DESC')->paginate($per_page);
     }
 
     public function addPageView($magazine)
@@ -96,12 +96,7 @@ class MagazineService
     {
         return count($this->getComments($magazine));
     }
-
-    public function getDaysAgo($magazine)
-    {
-        return Carbon::parse($magazine->created_at)->diffInDays(Carbon::now(), false);
-    }
-
+    
     /**
      * Get n latest magazines.
      */
