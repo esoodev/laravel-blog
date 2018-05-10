@@ -3,19 +3,56 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\MainController;
+use Log;
 
 class MagazineController extends MainController
 {
 
     /**
-     * Show the magazine for the given magazine id.
+     * Show all the magazines.
      *
      * @param  int  $id
      * @return Response
      */
     public function overview()
     {
-        $magazines = $this->magazineService->paginate(8);
+        $magazines = $this->magazineService->getAllPaginate(8);
+
+        return view('magazine.overview', [
+            'magazines' => $magazines,
+            'magazine_latests' => $this->magazineService->getLatest(3),
+            'all_categories' => $this->all_categories,
+            'all_tags' => $this->all_tag_names,
+        ]);
+    }
+    
+    /**
+     * Show the magazines for the given category name.
+     *
+     * @param  String  $category_name
+     * @return Response
+     */
+    public function overviewCategory($category_name)
+    {
+        $magazines = $this->categoryService->getMagazines($category_name, 8);
+
+        return view('magazine.overview', [
+            'magazines' => $magazines,
+            'magazine_latests' => $this->magazineService->getLatest(3),
+            'all_categories' => $this->all_categories,
+            'all_tags' => $this->all_tag_names,
+        ]);
+    }
+
+    /**
+     * Show the magazines for the given magazine id.
+     *
+     * @param  String  $tag_name
+     * @return Response
+     */
+    public function overviewTag($tag_name)
+    {
+        $magazines = $this->tagService->getMagazines($tag_name, 8);
 
         return view('magazine.overview', [
             'magazines' => $magazines,

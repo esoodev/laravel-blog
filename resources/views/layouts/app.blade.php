@@ -44,7 +44,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
     <!-- Favicon-->
-    <link rel="shortcut icon" href="favicon.png">
+    <link rel="shortcut icon" href="/favicon.png">
 
 </head>
 <header class="header">

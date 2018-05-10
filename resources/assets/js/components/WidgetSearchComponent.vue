@@ -17,7 +17,7 @@
 <script>
 export default {
   mounted() {
-    console.log("Category search component mounted.");
+    console.log("Search widget mounted.");
   }
 };
 </script>

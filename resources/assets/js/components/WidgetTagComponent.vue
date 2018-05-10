@@ -5,7 +5,7 @@
         </header>
         <ul class="list-inline">
             <li class="list-inline-item" v-for="(tag, index) in tags" :key="index">
-                <a href="#" class="tag">#{{ tag }}</a>
+                <a :href="'/magazine/tag/' + tag" class="tag">#{{ tag }}</a>
             </li>
         </ul>
     </div>
@@ -15,7 +15,7 @@
 export default {
   props: ["tags"],
   mounted() {
-    console.log("Category tag component mounted.");
+    console.log("Tag component mounted.");
   }
 };
 </script>

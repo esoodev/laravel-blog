@@ -30,7 +30,7 @@
 export default {
   props: ["latests"],
   mounted() {
-    console.log("Category widget component mounted.");
+    console.log("Latest widget mounted.");
   }
 };
 </script>

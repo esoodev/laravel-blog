@@ -4,7 +4,7 @@
             <h3 class="h6">Categories</h3>
         </header>
         <div class="item d-flex justify-content-between" v-for="(category, index) in categories" :key="index">
-            <a href="#">{{ category.name }}</a>
+            <a :href="'/magazine/category/' + category.name" >{{ category.name }}</a>
             <span>{{ category.count }}</span>
         </div>
     </div>
@@ -14,7 +14,7 @@
 export default {
   props: ['categories'],
   mounted() {
-    console.log("Category widget component mounted.");
+    console.log("Category widget mounted.");
   }
 };
 </script>

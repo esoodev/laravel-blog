@@ -2,15 +2,20 @@
 namespace App\Library\Services;
 
 use App\Category;
-use App\Comment;
 use App\Magazine;
-use Carbon\Carbon;
+use App\Tag;
+use Log;
 
 class MagazineService
 {
     public function getAll()
     {
         return Magazine::all();
+    }
+
+    public function getAllPaginate($per_page)
+    {
+        return Magazine::orderby('created_at', 'DESC')->paginate($per_page);
     }
 
     public function getMagazineCount()
@@ -28,14 +33,9 @@ class MagazineService
         return Magazine::findOrFail($id);
     }
 
-    public function paginate($per_page)
-    {
-        return Magazine::orderby('created_at', 'DESC')->paginate($per_page);
-    }
-
     public function orderByDate(&$magazines, $orderBy)
     {
-        if($orderBy == 'DESC' || $orderBy == 'desc') {
+        if ($orderBy == 'DESC' || $orderBy == 'desc') {
             usort($magazines, function ($a, $b) {
                 return strcmp($b->created_at, $a->created_at);
             });
