@@ -6,7 +6,7 @@
             <div class="container">
                 <div class="post-single">
                     <div class="post-thumbnail">
-                        <img src="{{ asset('img/blog-post-3.jpeg') }}" alt="..." class="img-fluid">
+                        <!-- <img src="{{ asset('img/blog-post-3.jpeg') }}" alt="..." class="img-fluid"> -->
                     </div>
                     <div class="post-details">
                         <div class="post-meta d-flex justify-content-between">
@@ -23,14 +23,14 @@
                             <a href="#" class="author d-flex align-items-center flex-wrap">
                                 <div class="title">
                                     <!-- List all authors. Author name is 'poing' if null. -->
-                                    @if($authors) @if(count($authors) === 1)
+                                    @if(count($authors)>0) @if(count($authors) === 1)
                                     <span>{{ $authors[0]->name }}</span>
                                     @else @foreach ($authors as $author)
                                     <span>{{ $author->name }}</span>
                                     @if($loop->index
                                     < count($authors)-1) <span> & </span>
                                         @endif @endforeach @endif @else
-                                        <span>poing</span>
+                                        <span>Poing</span>
                                         @endif
                                 </div>
                             </a>
@@ -42,7 +42,7 @@
                                     <i class="icon-eye"></i> {{ $page_views }}</div>
                                 <div class="comments meta-last">
                                     <!-- TODO : connect view_count -->
-                                    <i class="icon-comment"></i>{{ count($magazine_comments)}}</div>
+                                    <i class="icon-comment"></i>{{ $magazine->comments->count() }}</div>
                             </div>
                         </div>
                         <div class="post-body">
@@ -113,7 +113,7 @@
                             </a>
                         </div>
                         <!-- Comments [Show] -->
-                        <comment-show-component :comments="{{ json_encode($magazine_comments) }}"></comment-show-component>
+                        <comment-show-component :comments="{{ json_encode($magazine->comments) }}"></comment-show-component>
                         <div class="add-comment">
                             <header>
                                 <h3 class="h6">Leave a reply</h3>

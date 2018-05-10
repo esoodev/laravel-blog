@@ -1,7 +1,16 @@
 /* your styles go here */
+
 .pb-4, .py-4 {
     padding-top: 0!important;
     padding-bottom: 0!important;
+}
+
+section.featured-posts .text-big {
+    font-size: 1.4em;
+    font-weight: 300;
+    line-height: 1.8em;
+    margin-bottom: 3.5rem;
+    color: #111;
 }
 
 footer.main-footer {
