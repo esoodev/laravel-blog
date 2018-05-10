@@ -118,7 +118,7 @@ class MagazineService
     public function getLatest($n)
     {
         if ($n > 0) {
-            $magazines = Magazine::orderBy('id', 'desc')->take($n)->get();
+            $magazines = Magazine::orderBy('created_at', 'desc')->take($n)->get();
             foreach ($magazines as &$magazine) {
                 $magazine['views'] =
                 $this->getPageViews($magazine);

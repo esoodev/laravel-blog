@@ -24,14 +24,13 @@ class HomeController extends MainController
      */
     public function index()
     {
-        $magazines = $this->magazineService->getAll();
+        $magazine_latests = $this->magazineService->getLatest(3);
         $magazine_rands = $this->magazineService->getRandom(3);
         $this->magazineService->orderByDate($magazine_rands, 'DESC');
 
         return view('index', [
-            'magazines' => $magazines,
             'magazine_rands' => $magazine_rands,
-            'magazine_latests' => $this->magazineService->getLatest(3),
+            'magazine_latests' => $magazine_latests,
             'all_categories' => $this->all_categories,
             'all_tags' => $this->all_tag_names,
         ]);
