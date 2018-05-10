@@ -2,12 +2,14 @@
 
 namespace App;
 
+use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 use CyrildeWit\PageViewCounter\Traits\HasPageViewCounter;
 
 class Magazine extends Model
 {
     use HasPageViewCounter;
+    use Searchable;
 
     const DEFAULT_CATEGORY = 1;
     const DEFAULT_CSS = "";
