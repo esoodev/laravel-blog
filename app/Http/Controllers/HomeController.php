@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\MainController;
-use Illuminate\Http\Request;
 
 class HomeController extends MainController
 {
@@ -26,7 +25,8 @@ class HomeController extends MainController
     public function index()
     {
         $magazines = $this->magazineService->getAll();
-        $magazine_rands = $this->magazineService->getRandom(2);
+        $magazine_rands = $this->magazineService->getRandom(6);
+        $this->magazineService->orderByDate($magazine_rands, 'DESC');
 
         return view('index', [
             'magazines' => $magazines,

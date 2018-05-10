@@ -33,6 +33,21 @@ class MagazineService
         return Magazine::orderby('created_at', 'DESC')->paginate($per_page);
     }
 
+    public function orderByDate(&$magazines, $orderBy)
+    {
+        if($orderBy == 'DESC' || $orderBy == 'desc') {
+            usort($magazines, function ($a, $b) {
+                return strcmp($b->created_at, $a->created_at);
+            });
+        } else if ($orderBy == 'ASC' || $orderBy == 'asc') {
+            usort($magazines, function ($a, $b) {
+                return strcmp($a->created_at, $b->created_at);
+            });
+        } else {
+            return $magazines;
+        }
+    }
+
     public function addPageView($magazine)
     {
         if ($magazine) {
@@ -96,7 +111,7 @@ class MagazineService
     {
         return count($this->getComments($magazine));
     }
-    
+
     /**
      * Get n latest magazines.
      */
