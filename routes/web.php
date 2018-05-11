@@ -16,11 +16,11 @@
 // });
 Route::get('/', 'HomeController@index');
 Route::get('/magazine', 'MagazineController@overview');
+Route::get('/magazine/search', 'MagazineController@overviewSearch');
 Route::get('/magazine/{id}', 'MagazineController@read');
 Route::post('/magazine/{id}/comments', 'CommentController@store');
 Route::get('/magazine/category/{name}', 'MagazineController@overviewCategory');
 Route::get('/magazine/tag/{name}', 'MagazineController@overviewTag');
-Route::get('/magazine/search/{query}', 'MagazineController@overviewSearch');
 
 Auth::routes();
 

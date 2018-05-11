@@ -69,12 +69,10 @@ class MagazineController extends MainController
      * @param  String  $query
      * @return Response
      */
-    public function overviewSearch($query, Request $request)
+    public function overviewSearch(Request $request)
     {
         $url = $request->fullUrl();
-        $query = $url;
-        Log::debug('url : '.$url);
-        $magazines = $this->searchService->magazinesPaginate($query, 8);
+        $magazines = $this->searchService->magazinesPaginate($_GET['query'], 8);
 
         return view('magazine.overview', [
             'magazines' => $magazines,
