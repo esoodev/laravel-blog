@@ -94,7 +94,7 @@
                         <a href="/magazine" class="nav-link">Magazines</a>
                     </li>
                     <li class="nav-item">
-                        <a href="/magazines/latest" class="nav-link">Latest</a>
+                        <a href="/magazine/latest" class="nav-link">Latest</a>
                     </li>
                     <!-- Authentication Links -->
                     @guest

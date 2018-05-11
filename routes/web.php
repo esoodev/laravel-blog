@@ -17,6 +17,7 @@
 Route::get('/', 'HomeController@index');
 Route::get('/magazine', 'MagazineController@overview');
 Route::get('/magazine/search', 'MagazineController@overviewSearch');
+Route::get('/magazine/latest', 'MagazineController@readLatest');
 Route::get('/magazine/{id}', 'MagazineController@read');
 Route::post('/magazine/{id}/comments', 'CommentController@store');
 Route::get('/magazine/category/{name}', 'MagazineController@overviewCategory');

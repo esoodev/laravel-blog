@@ -124,4 +124,17 @@ class MagazineController extends MainController
         ]);
     }
 
+    /**
+     * Show the latest magazine.
+     *
+     * @param  null
+     * @return Response
+     */
+    public function readLatest()
+    {
+        $magazine_latest = $this->magazineService->getLatest(1);
+        // Possible performance hit : getting Magazine->id->Magazine.
+        return $this->read($magazine_latest[0]->id);
+    }
+
 }
