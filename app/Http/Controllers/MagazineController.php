@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\MainController;
 use Log;
 
@@ -53,6 +54,25 @@ class MagazineController extends MainController
     public function overviewTag($tag_name)
     {
         $magazines = $this->tagService->getMagazines($tag_name, 8);
+
+        return view('magazine.overview', [
+            'magazines' => $magazines,
+            'magazine_latests' => $this->magazineService->getLatest(3),
+            'all_categories' => $this->all_categories,
+            'all_tags' => $this->all_tag_names,
+        ]);
+    }
+    
+    /**
+     * Show the magazines for the given search query.
+     *
+     * @param  String  $query
+     * @return Response
+     */
+    public function overviewSearch(Request $request)
+    {
+        $url = $request->fullUrl();
+        $magazines = $this->searchService->magazinesPaginate($_GET['query'], 8);
 
         return view('magazine.overview', [
             'magazines' => $magazines,

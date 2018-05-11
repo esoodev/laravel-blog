@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Library\Services\CategoryService;
 use App\Library\Services\MagazineService;
 use App\Library\Services\TagService;
+use App\Library\Services\SearchService;
 use Carbon\Carbon;
 
 class MainController extends Controller
@@ -13,11 +14,13 @@ class MainController extends Controller
     public function __construct(
         MagazineService $magazineService,
         CategoryService $categoryService,
-        TagService $tagService
+        TagService $tagService,
+        SearchService $searchService
     ) {
         $this->magazineService = $magazineService;
         $this->categoryService = $categoryService;
         $this->tagService = $tagService;
+        $this->searchService = $searchService;
 
         // Get all tag names.
         $this->all_tag_names = $this->tagService->getAllNames();

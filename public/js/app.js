@@ -48003,17 +48003,28 @@ var staticRenderFns = [
         _c("h3", { staticClass: "h6" }, [_vm._v("Search the blog")])
       ]),
       _vm._v(" "),
-      _c("form", { staticClass: "search-form", attrs: { action: "#" } }, [
-        _c("div", { staticClass: "form-group" }, [
-          _c("input", {
-            attrs: { type: "search", placeholder: "What are you looking for?" }
-          }),
-          _vm._v(" "),
-          _c("button", { staticClass: "submit", attrs: { type: "submit" } }, [
-            _c("i", { staticClass: "icon-search" })
+      _c(
+        "form",
+        {
+          staticClass: "search-form",
+          attrs: { action: "/magazine/search", method: "GET" }
+        },
+        [
+          _c("div", { staticClass: "form-group" }, [
+            _c("input", {
+              attrs: {
+                type: "search",
+                name: "query",
+                placeholder: "What are you looking for?"
+              }
+            }),
+            _vm._v(" "),
+            _c("button", { staticClass: "submit", attrs: { type: "submit" } }, [
+              _c("i", { staticClass: "icon-search" })
+            ])
           ])
-        ])
-      ])
+        ]
+      )
     ])
   }
 ]

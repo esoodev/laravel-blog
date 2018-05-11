@@ -57,9 +57,9 @@
                 </div>
                 <div class="row d-flex justify-content-center">
                     <div class="col-md-8">
-                        <form action="#">
+                        <form action="/magazine/search" method="GET" class="search-form">
                             <div class="form-group">
-                                <input type="search" name="search" id="search" placeholder="What are you looking for?">
+                                <input type="search" name="query" id="search" placeholder="What are you looking for?">
                                 <button type="submit" class="submit">
                                     <i class="icon-search-1"></i>
                                 </button>
