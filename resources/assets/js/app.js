@@ -5,7 +5,13 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+var $ = require("jquery");
+
 require('./bootstrap');
+require('./front.js');
+require('jquery.cookie');
+require('timeago');
+require('@fancyapps/fancybox');
 
 window.Vue = require('vue');
 

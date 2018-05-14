@@ -13,36 +13,13 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <!-- jQuery -->
-    <script src="{{ asset('vendor/jquery/jquery.min.js') }}" defer></script>
-    <!-- Bootstrap JS -->
-    <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}" defer></script>
-    <!-- jQuery Cookie -->
-    <script src="{{ asset('vendor/jquery.cookie/jquery.cookie.js') }}" defer></script>
-    <!-- jQuery Timeago -->
-    <script src="{{ asset('js/jquery.timeago.js') }}" defer></script>
-    <!-- Fancybox -->
-    <script src="{{ asset('vendor/@fancyapps/fancybox/jquery.fancybox.min.js') }}" defer></script>
-    <!-- Custom JS -->
-    <script src="{{ asset('js/front.js') }}" defer></script>
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-    <!-- Bootstrap CSS-->
-    <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" media="all" rel="stylesheet" type="text/css" />
-    <!-- Font Awesome CSS-->
-    <link rel="stylesheet" href="{{ asset('vendor/font-awesome/css/font-awesome.min.css') }}">
-    <!-- Custom icon font-->
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/fontastic.css') }}">
-    <!-- Google fonts - Open Sans-->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
-    <!-- Fancybox-->
-    <link rel="stylesheet" href="{{ asset('vendor/@fancyapps/fancybox/jquery.fancybox.min.css') }}">
-    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.default.css') }}" id="theme-stylesheet">
-    <!-- Styles -->
-    <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
+
     <!-- Favicon-->
     <link rel="shortcut icon" href="/favicon.png">
 
