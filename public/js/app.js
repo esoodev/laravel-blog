@@ -36095,6 +36095,11 @@ $(document).ready(function () {
     $("[data-fancybox]").fancybox();
 
     // ---------------------------------------------- //
+    // Timeago
+    // ---------------------------------------------- //
+    $("time.timeago").timeago();
+
+    // ---------------------------------------------- //
     // Divider Section Parallax Background
     // ---------------------------------------------- //
     $(window).on('scroll', function () {

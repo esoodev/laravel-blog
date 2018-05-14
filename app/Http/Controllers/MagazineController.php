@@ -153,7 +153,6 @@ class MagazineController extends MainController
 
     public function store(Request $request)
     {
-        // var_dump($request->content);
         $magazine_id= $this->magazineService->createMagazine($request);
         return $this->read($magazine_id);
     }
