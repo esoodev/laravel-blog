@@ -16,6 +16,11 @@ class CategoryService
         return array_column(Category::all()->toArray(), 'name');
     }
 
+    public static function find($id)
+    {
+        return Category::find($id);
+    }
+
     public function getMagazineCount($category)
     {
         if ($category) {

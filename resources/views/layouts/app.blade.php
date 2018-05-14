@@ -22,7 +22,7 @@
 
     <!-- Favicon-->
     <link rel="shortcut icon" href="/favicon.png">
-
+    
 </head>
 <header class="header">
     <!-- Main Navbar-->

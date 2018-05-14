@@ -3,8 +3,8 @@ namespace App\Library\Services;
 
 use App\Category;
 use App\Magazine;
-use App\Tag;
-use Log;
+use App\Library\Services\CategoryService;
+use Illuminate\Http\Request;
 
 class MagazineService
 {
@@ -141,11 +141,33 @@ class MagazineService
         while (sizeof($result) < $n) {
             $magazine = $this->find(rand(1, $this->getMagazineCount()));
             if (in_array($magazine, $result)) {
-                continue;
+            continue;
             }
             array_push($result, $magazine);
         }
 
         return $result;
+    }
+
+    /**
+     * Create a magazine.
+     */
+    public function createMagazine(Request $request)
+    {
+        $magazine = new Magazine;
+        $magazine->title = $request->title;
+        $magazine->content_lead = $request->content_lead;
+        $magazine->content_body = $request->content_body;
+
+        if (CategoryService::find($category_id = $request->category_id)) {
+            $magazine->category_id = $category_id;
+        } else {
+            // If no category exists, set default category, which is 1.
+            $magazine->category_id = 1;
+        }
+
+        $magazine->save();
+        
+        return $magazine->id;
     }
 }
