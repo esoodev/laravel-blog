@@ -145,7 +145,7 @@ class MagazineController extends MainController
      */
     public function write()
     {
-        $content_body = 'Write your magazine post here!';
+        $content_body = "";
         return view('magazine.write', [
             'content_body' => $content_body
         ]);

@@ -14,6 +14,11 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
+    <!-- TinyMCE -->
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=793utg3aukm6rw3boy73oxa90e843o0k8zmh6t5l510wzt2n"></script>
+    <script src="{{ asset('js/tinymce.js') }}" defer></script>
+    
+
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/fontastic.css') }}">
@@ -22,7 +27,7 @@
 
     <!-- Favicon-->
     <link rel="shortcut icon" href="/favicon.png">
-    
+
 </head>
 <header class="header">
     <!-- Main Navbar-->
