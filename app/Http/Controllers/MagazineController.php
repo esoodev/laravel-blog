@@ -136,5 +136,25 @@ class MagazineController extends MainController
         // Possible performance hit : getting Magazine->id->Magazine.
         return $this->read($magazine_latest[0]->id);
     }
+    
+    /**
+     * Write the latest magazine.
+     *
+     * @param  null
+     * @return Response
+     */
+    public function write()
+    {
+        $content_body = "";
+        return view('magazine.write', [
+            'content_body' => $content_body
+        ]);
+    }
+
+    public function store(Request $request)
+    {
+        $magazine_id= $this->magazineService->createMagazine($request);
+        return $this->read($magazine_id);
+    }
 
 }

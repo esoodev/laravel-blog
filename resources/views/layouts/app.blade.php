@@ -20,8 +20,11 @@
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.default.css') }}" id="theme-stylesheet">
 
-    <!-- Favicon-->
+    <!-- Favicon -->
     <link rel="shortcut icon" href="/favicon.png">
+
+    <!-- Custom -->    
+    @yield('header')
 
 </head>
 <header class="header">
@@ -78,9 +81,9 @@
                     <li>
                         <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                    </li>
+                    </li> -->
                     @else
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -98,6 +101,8 @@
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                             </form>
+
+                            <a class="dropdown-item" href="{{ route('write') }}">{{ __('Write') }}</a>
                         </div>
                     </li>
                     @endguest

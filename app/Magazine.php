@@ -14,7 +14,8 @@ class Magazine extends Model
     const DEFAULT_CATEGORY = 1;
     const DEFAULT_CSS = "";
     const DEFAULT_JAVASCRIPT = "";
-
+    const DEFAULT_IS_VISIBLE = 1;
+    
     protected $fillable = [
         'title',
         'content_lead',
@@ -28,6 +29,7 @@ class Magazine extends Model
         'category_id' => self::DEFAULT_CATEGORY,
         'content_css' => self::DEFAULT_CSS,
         'content_javascript' => self::DEFAULT_JAVASCRIPT,
+        'is_visible' => self::DEFAULT_IS_VISIBLE,
     ];
 
     /**

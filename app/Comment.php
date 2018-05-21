@@ -29,16 +29,5 @@ class Comment extends Model
     {
         return $this->belongsTo('App\Magazine');
     }
-
-    /**
-     * Create a comment.
-     */
-    public function store(Request $request)
-    {
-        // TODO: Validate the request...
-
-        $comment = new Comment;
-        $comment->comment = $request->name;
-        $flight->save();
-    }
+    
 }
