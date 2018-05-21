@@ -16,8 +16,8 @@
 // });
 Route::get('/', 'HomeController@index');
 Route::get('/magazine', 'MagazineController@overview');
-Route::get('/magazine/new', 'MagazineController@write');
-Route::post('/magazine/new', 'MagazineController@store');
+Route::get('/magazine/write', 'MagazineController@write')->middleware('auth')->name('write');
+Route::post('/magazine/write', 'MagazineController@store')->middleware('auth');
 Route::get('/magazine/search', 'MagazineController@overviewSearch');
 Route::get('/magazine/latest', 'MagazineController@readLatest');
 Route::get('/magazine/{id}', 'MagazineController@read');

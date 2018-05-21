@@ -34,3 +34,8 @@ footer.main-footer .copyrights {
 .row.form-description {
     margin: 0px;
 }
+
+textarea#content_lead {
+  height: 10em;
+  padding: 1em;
+}

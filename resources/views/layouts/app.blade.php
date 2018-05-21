@@ -14,19 +14,17 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
-    <!-- TinyMCE -->
-    <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=793utg3aukm6rw3boy73oxa90e843o0k8zmh6t5l510wzt2n"></script>
-    <script src="{{ asset('js/tinymce.js') }}" defer></script>
-    
-
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/fontastic.css') }}">
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.default.css') }}" id="theme-stylesheet">
 
-    <!-- Favicon-->
+    <!-- Favicon -->
     <link rel="shortcut icon" href="/favicon.png">
+
+    <!-- Custom -->    
+    @yield('header')
 
 </head>
 <header class="header">
@@ -83,9 +81,9 @@
                     <li>
                         <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                    </li>
+                    </li> -->
                     @else
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -103,6 +101,8 @@
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                             </form>
+
+                            <a class="dropdown-item" href="{{ route('write') }}">{{ __('Write') }}</a>
                         </div>
                     </li>
                     @endguest
